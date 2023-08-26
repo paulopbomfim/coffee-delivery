@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+import backgroundImage from "./assets/background.svg";
+
 export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -17,6 +19,11 @@ export const GlobalStyle = createGlobalStyle`
     color: ${(props) => props.theme.text};
     -webkit-font-smoothing: antialiased;
     transition: background 0.3s;
+
+
+    background-image: url(${backgroundImage});
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   body, input, textarea, p, span {
