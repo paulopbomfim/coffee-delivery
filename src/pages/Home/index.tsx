@@ -1,10 +1,33 @@
+import { useEffect, useState } from "react";
+
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
-import { BenefitsContainer, HeroSection, HeroTitle, HomeContainer } from "./style";
+import { BenefitsContainer, HeroSection, HeroTitle, HomeContainer, ListSection } from "./style";
+import { apiCoffee } from "../../axios/api";
 
 import heroImage from "../../assets/hero-image.png";
+import { CoffeeCard } from "./components/CoffeeCard";
+
+export interface CoffeeDataType {
+	id: number;
+	name: string;
+	description: string;
+	price: number;
+	category: string[];
+	"image-src": string;
+}
+
 
 export function Home() {
+	const [coffeeData, setCoffeeData] = useState<CoffeeDataType[]>([]);
+
+	useEffect(() => {
+		apiCoffee
+			.get("coffee-list")
+			.then((response) => setCoffeeData(response.data))
+			.catch((err) => console.log("Houve um erro durante a requisição:" + err));
+	}, []);
+
 	return (
 		<HomeContainer>
 			<HeroSection>
@@ -23,7 +46,15 @@ export function Home() {
 				<img src={heroImage} alt="Copo de café com grãos de café atrás." />
 			</HeroSection>
 
+			<ListSection>
+				<h2>Nossos cafés</h2>
 
+				{
+					coffeeData.map((coffee) => (
+						<CoffeeCard key={coffee.id} coffee={coffee}/>
+					))
+				}
+			</ListSection>
 		</HomeContainer>
 	);
 }

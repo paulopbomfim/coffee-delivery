@@ -13,7 +13,7 @@ export const HeroSection = styled.section`
 
 
 
-  padding: 10rem 0;
+  padding: 6rem 0;
 
   img {
     grid-column-start: 3;
@@ -88,5 +88,12 @@ export const BenefitsContainer = styled.div`
       }
     }
 
+  }
+`;
+
+export const ListSection = styled.section`
+  h2 {
+    font-size: 2rem;
+    color: ${(prop) => prop.theme.subtitle};
   }
 `;
