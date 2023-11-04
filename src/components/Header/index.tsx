@@ -13,13 +13,13 @@ export function Header() {
 	const {isDarkTheme, changeTheme} = useContext(ThemeContext);
 
 	function handleChangeTheme() {
-		changeTheme(isDarkTheme === false ? "true": "false");
+		changeTheme(!isDarkTheme ? "true": "false");
 	}
 
 	return (
 		<HeaderContainer>
 			<Link to="/">
-				<img src={isDarkTheme ? appLogoDark : appLogoLight} />
+				<img src={isDarkTheme ? appLogoDark : appLogoLight} alt="Coffee Delivery" />
 			</Link>
 
 			<NavigationContainer>

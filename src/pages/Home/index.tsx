@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
-import { BenefitsContainer, HeroSection, HeroTitle, HomeContainer, ListSection } from "./style";
+import {BenefitsContainer, CoffeeContainer, HeroSection, HeroTitle, HomeContainer, ListSection} from "./style";
 import { apiCoffee } from "../../axios/api";
 
 import heroImage from "../../assets/hero-image.png";
@@ -49,11 +49,13 @@ export function Home() {
 			<ListSection>
 				<h2>Nossos cafés</h2>
 
-				{
-					coffeeData.map((coffee) => (
-						<CoffeeCard key={coffee.id} coffee={coffee}/>
-					))
-				}
+				<CoffeeContainer>
+					{
+						coffeeData.map((coffee) => (
+							<CoffeeCard key={coffee.id} coffee={coffee}/>
+						))
+					}
+				</CoffeeContainer>
 			</ListSection>
 		</HomeContainer>
 	);

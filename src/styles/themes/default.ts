@@ -1,5 +1,7 @@
 export const defaultTheme = {
 	"background": "#fafafa",
+	"background-card": "#f3f2f2",
+	"base-button": "##E6E5E5",
 	"title": "#272221",
 	"subtitle": "#403937",
 	"text": "#574f4d",

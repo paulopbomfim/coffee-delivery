@@ -1,5 +1,7 @@
 export const darkTheme = {
-	"background": "#272221",
+	"background": "#1F1F1F",
+	"background-card": "#262626",
+	"base-button": "#333333",
 	"title": "#fafafa",
 	"subtitle": "#E0E0E0",
 	"text": "#B0B0B0",

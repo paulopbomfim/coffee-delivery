@@ -95,5 +95,13 @@ export const ListSection = styled.section`
   h2 {
     font-size: 2rem;
     color: ${(prop) => prop.theme.subtitle};
+    margin-bottom: 3.375rem;
   }
+  margin: 0 0 6rem 0;
+`;
+
+export const CoffeeContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem 2rem;
 `;
