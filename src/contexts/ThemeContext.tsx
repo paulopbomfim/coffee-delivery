@@ -1,5 +1,6 @@
-import { ReactNode, createContext, useState } from "react";
-import { storage } from "../StorageNames";
+import {createContext, ReactNode, useState} from "react";
+import {storage} from "../StorageNames";
+
 // import { storage } from "../StorageNames";
 
 interface ThemeContextType {
@@ -17,10 +18,9 @@ export function ThemeContextProvider({children}: ThemeContextProviderProps) {
 	const [isDarkTheme, setDarkTheme] = useState(false);
 
 	function changeTheme(isDark: string) {
-		setDarkTheme(isDark === "true" ? true : false);
-		
-		const darkTheme = isDark;
-		localStorage.setItem(storage.theme, darkTheme.toString());
+		setDarkTheme(isDark === "true");
+
+		localStorage.setItem(storage.theme, isDark.toString());
 	}
 
 	return (
