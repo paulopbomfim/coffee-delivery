@@ -27,7 +27,7 @@ export function Header() {
 
 				<Link to="/checkout" >
 					<ShoppingCart size={22} weight="fill" />
-					<span>3</span>
+					{/*<span></span>*/} {/*if cart is empty this element don't exist*/}
 				</Link>
 
 				<button type="button" className={isDarkTheme ? "dark" : ""} onClick={handleChangeTheme}>

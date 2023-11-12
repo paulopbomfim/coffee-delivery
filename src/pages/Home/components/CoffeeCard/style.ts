@@ -102,7 +102,10 @@ export const ShoppingCartButtonContainer = styled.div`
   	padding: 6px;
   	border-radius: 6px;
   	background-color: ${(props) => props.theme["brand-secondary-dark"]};
-  cursor: pointer;
+  	color: ${(props) => {
+		return props.theme["background-card"];
+	}};
+  	cursor: pointer;
   	transition: background-color 0.2s ease-in-out;
   &:hover {
 	background-color: ${(props) => props.theme["brand-secondary"]};

@@ -1,4 +1,3 @@
-
 import { CoffeeDataType } from "../..";
 import {
 	CardContainer, CartContainer,
@@ -9,13 +8,36 @@ import {
 	TitleSection
 } from "./style";
 import {Minus, Plus, ShoppingCart} from "phosphor-react";
+import {useContext, useState} from "react";
+import {CartContext} from "../../../../contexts/CartContext.tsx";
 
 interface CoffeeCardProp {
   coffee: CoffeeDataType
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProp) {
+	const [cardItemsCounter, setCardItemsCounter] = useState(0);
+	const {handleAddItemToCart} = useContext(CartContext);
 
+
+	function handleIncrementCoffeeCardCounter() {
+		setCardItemsCounter((prevState) => prevState + 1);
+	}
+
+	function handleDecrementCoffeeCardCounter() {
+		cardItemsCounter <= 0
+			? setCardItemsCounter(0)
+			: setCardItemsCounter((prevState) => prevState - 1);
+	}
+
+	async function onAddItemToCart() {
+		if (cardItemsCounter <= 0) return;
+
+		await handleAddItemToCart({
+			itemId: coffee.id,
+			quantity: cardItemsCounter
+		});
+	}
 
 	return (
 		<CardContainer>
@@ -38,11 +60,11 @@ export function CoffeeCard({ coffee }: CoffeeCardProp) {
 
 				<CartContainer>
 					<CounterContainer>
-						<button><Minus size={16} weight={"fill"}/></button>
-						<span>1</span>
-						<button><Plus size={16} weight={"fill"}/> </button>
+						<button type="button" onClick={handleDecrementCoffeeCardCounter}><Minus size={16} weight={"fill"} /></button>
+						<span>{cardItemsCounter}</span>
+						<button type="button" onClick={handleIncrementCoffeeCardCounter}><Plus size={16} weight={"fill"} /></button>
 					</CounterContainer>
-					<ShoppingCartButtonContainer>
+					<ShoppingCartButtonContainer onClick={onAddItemToCart}>
 						<ShoppingCart size={22} weight={"fill"}/>
 					</ShoppingCartButtonContainer>
 				</CartContainer>
