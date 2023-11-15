@@ -1,3 +1,5 @@
+import backgroundImage from "../../assets/background.svg";
+
 export const defaultTheme = {
 	"background": "#fafafa",
 	"background-card": "#f3f2f2",
@@ -11,5 +13,6 @@ export const defaultTheme = {
 	"brand-secondary-light": "#EBE5F9",
 	"brand-secondary": "#8047f8",
 	"brand-secondary-dark": "#4B2995",
-	"white": "#fff"
+	"white": "#fff",
+	"background-image": `${backgroundImage}`
 };

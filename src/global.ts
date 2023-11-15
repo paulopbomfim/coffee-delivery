@@ -1,12 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
-import backgroundImage from "./assets/background.svg";
-
 export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  
+  :root {
+    background: ${(props) => props.theme.background};
   }
 
   :focus {
@@ -15,14 +17,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme.background};
+    
     color: ${(props) => props.theme.text};
     -webkit-font-smoothing: antialiased;
     transition: background 0.3s;
 
 
-    background-image: url(${backgroundImage});
-    background-size: cover;
+    background-image:  url(${prop => prop.theme["background-image"]});
+    background-size: contain;
     background-repeat: no-repeat;
   }
 

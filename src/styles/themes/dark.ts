@@ -11,5 +11,6 @@ export const darkTheme = {
 	"brand-secondary-light": "#EBE5F9",
 	"brand-secondary": "#8047f8",
 	"brand-secondary-dark": "#4B2995",
-	"white": "#fff"
+	"white": "#fff",
+	"background-image": "none"
 };
