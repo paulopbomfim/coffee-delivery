@@ -101,13 +101,13 @@ export const ShoppingCartButtonContainer = styled.div`
 	line-height: 0;
   	padding: 6px;
   	border-radius: 6px;
-  	background-color: ${(props) => props.theme["brand-secondary-dark"]};
+  	background-color: ${(props) => props.theme["brand-secondary"]};
   	color: ${(props) => {
 		return props.theme["background-card"];
 	}};
   	cursor: pointer;
   	transition: background-color 0.2s ease-in-out;
   &:hover {
-	background-color: ${(props) => props.theme["brand-secondary"]};
+	background-color: ${(props) => props.theme["brand-secondary-dark"]};
   }
 `;

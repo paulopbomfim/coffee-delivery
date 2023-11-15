@@ -1,4 +1,4 @@
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 
 import { HeaderContainer, NavigationContainer } from "./styles";
 import { ThemeContext } from "../../contexts/ThemeContext";
@@ -8,13 +8,18 @@ import appLogoDark from "../../assets/logo-dark.svg";
 import { Moon, ShoppingCart, SunDim } from "phosphor-react";
 import GeographicLocation from "./components/GeographicLocation";
 import { Link } from "react-router-dom";
+import {CartContext} from "../../contexts/CartContext.tsx";
 
 export function Header() {
 	const {isDarkTheme, changeTheme} = useContext(ThemeContext);
-
+	const {shoppingCartCounter, onLoadCartData} = useContext(CartContext);
 	function handleChangeTheme() {
 		changeTheme(!isDarkTheme ? "true": "false");
 	}
+
+	useEffect(() => {
+		onLoadCartData().then();
+	}, []);
 
 	return (
 		<HeaderContainer>
@@ -27,7 +32,7 @@ export function Header() {
 
 				<Link to="/checkout" >
 					<ShoppingCart size={22} weight="fill" />
-					{/*<span></span>*/} {/*if cart is empty this element don't exist*/}
+					{shoppingCartCounter ? <span>{shoppingCartCounter}</span> : ""}
 				</Link>
 
 				<button type="button" className={isDarkTheme ? "dark" : ""} onClick={handleChangeTheme}>

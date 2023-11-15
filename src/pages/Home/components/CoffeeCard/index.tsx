@@ -35,8 +35,11 @@ export function CoffeeCard({ coffee }: CoffeeCardProp) {
 
 		await handleAddItemToCart({
 			itemId: coffee.id,
+			name: coffee.name,
 			quantity: cardItemsCounter
 		});
+
+		setCardItemsCounter(0);
 	}
 
 	return (
