@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
-import {BenefitsContainer, CoffeeContainer, HeroSection, HeroTitle, HomeContainer, ListSection} from "./style";
+import {BenefitsContainer, CoffeeContainer, HeroSection, HeroTitle, ListSection} from "./style";
 import { apiCoffee } from "../../axios/api";
 
 import heroImage from "../../assets/hero-image.png";
@@ -29,7 +29,7 @@ export function Home() {
 	}, []);
 
 	return (
-		<HomeContainer>
+		<main>
 			<HeroSection>
 				<HeroTitle>
 					<h1>Encontre o café perfeito para qualquer hora do dia</h1>
@@ -57,6 +57,6 @@ export function Home() {
 					}
 				</CoffeeContainer>
 			</ListSection>
-		</HomeContainer>
+		</main>
 	);
 }

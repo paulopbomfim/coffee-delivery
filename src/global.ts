@@ -22,10 +22,6 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     transition: background 0.3s;
 
-
-    background-image:  url(${prop => prop.theme["background-image"]});
-    background-size: contain;
-    background-repeat: no-repeat;
   }
 
   body, input, textarea, p, span {
