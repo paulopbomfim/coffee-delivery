@@ -2,6 +2,7 @@ export const darkTheme = {
 	"background": "#1F1F1F",
 	"background-card": "#262626",
 	"base-button": "#333333",
+	"base-button-hover": "#292828",
 	"title": "#fafafa",
 	"subtitle": "#E0E0E0",
 	"text": "#B0B0B0",
@@ -12,4 +13,5 @@ export const darkTheme = {
 	"brand-secondary": "#8047f8",
 	"brand-secondary-dark": "#4B2995",
 	"white": "#fff",
+	"success": "#2dcb45",
 };
